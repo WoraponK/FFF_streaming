@@ -155,8 +155,12 @@
                 margin-top: 0.25rem;
                 display: flex;
                 justify-content: end;
-                & p, ion-icon {
+                & p, ion-icon,span {
                     color: #B0B3B8;
+                }
+
+                & span {
+                    margin-left: 0.5rem;
                 }
 
                 & ion-icon {

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <v-container grid-list-xs>
+                    <h2>EXAMPLE CRUD</h2>
+                    <form class="flex flex-row" @submit.prevent="(form.user_id)?update(form.user_id):create()">
+                        <v-text-field v-model="form.name_profile" label="Name Profile" id="user_id"></v-text-field>
+                        <v-text-field v-model="form.username" label="Username" id="user_id"></v-text-field>
+                        <v-text-field v-model="form.password" label="Password" id="user_id"></v-text-field>
+                        <v-text-field v-model="form.email" label="Email" id="user_id"></v-text-field>
+                        <v-text-field v-model="form.profile_picture" label="Link Pic" id="user_id"></v-text-field>
+                        <v-text-field v-model="form.amount_hours" label="amount hours" id="user_id"></v-text-field>
+                        <v-btn type="submit" color="success">{{(form.user_id)?'Update':'Create'}}</v-btn>
+                    </form>
+                    <br>
+                    <v-text-field v-model="search" label="Search" id="user_id"></v-text-field>
+                    <v-data-table :headers="headers" :items="list" :search="search">
+                        <template v-slot:item.action="{ item }">
+                            <div>
+                                <v-btn @click="form = item" color="warning">edit</v-btn>
+                                <v-btn @click="remove(item.user_id)" color="error">delete</v-btn>
+                            </div>
+                        </template>
+                    </v-data-table>
+                </v-container   >
+            </v-main>
+        </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        const host = "http://localhost:8000"
+        const vue_home = new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data: () => {
+                return ({
+                    name: 'Vue',
+                    list: [],
+                    form: {},
+                    search: '',
+                    headers: [{
+                            text: 'รหัสนิสิต',
+                            value: 'user_id',
+                        },
+                        {
+                            text: 'ชื่อ',
+                            value: 'name_profile',
+                        },
+                        {
+                            text: 'อีเมล',
+                            value: 'email',
+                        },
+                        {
+                            text: 'รูป',
+                            value: 'profile_picture',
+                        },
+                        {
+                            text: 'จำนวนชั่วโมง',
+                            value: 'amount_hours',
+                        },
+                        {
+                            text: 'Option',
+                            value: 'action',
+                        },
+                    ]
+                })
+            },
+            async created() {
+                await this.load()
+            },
+            methods: {
+                async load() {
+                    this.form = {}
+                    await axios.get(`${host}/users`).then((res) => {
+                        this.list = res.data
+                    })
+                },
+                async remove(user_id) {
+                    let confirm = window.confirm("U want to delete");
+                    if (confirm) {
+                        await axios.delete(`${host}/users/${user_id}`).then(async (res) => {
+                            await this.load()
+                            let result = res.data
+                            alert(result.message)
+                        });
+                    }
+                    await axios.delete(`${host}/users/${user_id}`).then(async (res) => {
+                        await this.load()
+                    })
+                },
+                async update(user_id) {
+                    let check = window.confirm('U want to edit?')
+                    if (check) {
+                        await axios.put(`${host}/users/${user_id}`, this.form).then(async (res) => {
+                            alert(res.data.message)
+                        })
+                    }
+                    await this.load()
+                },
+                async create() {
+                    await axios.post(`${host}/users`, this.form).then(async (res) => {
+                        await this.load()
+                    })
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

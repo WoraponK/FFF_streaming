@@ -8,6 +8,9 @@
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="streaming.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </head>
 <header class="nav">
     <div class="imgbrand_box"><a href="index1.html">
@@ -41,108 +44,142 @@
 </header>
 
 <body>
-    <div class="body">
-        <div class="sidebar">
-            <div class="title-sidebar">
-                <h3>Discover</h3>
-            </div>
-            <div class="menu-sidebar">
-                <div class="display1">
-                    <a href="">Party</a><br>
-                    <a href="">Stream</a><br>
-                    <a href="">Friends</a><br></div>
-            </div>
-        </div>
-
-        <div class="content-stm">
-            <div class="stm-display-wrapper">
-                <div class="stm-display">
-                    <div class="stmThumbnail">
-                        <ion-icon name="play-circle"></ion-icon>
-                        <img src="https://dummyimage.com/1280x720/ddd/000000&text=16:9">
+    <div id="id">
+        <div class="body">
+            <div class="sidebar">
+                <div class="title-sidebar">
+                    <h3>Discover</h3>
+                </div>
+                <div class="menu-sidebar">
+                    <div class="display1">
+                        <a href="#" style="color: #fff">Party</a><br>
+                        <a href="#" style="color: #fff">Stream</a><br>
+                        <a href="#" style="color: #fff">Friends</a><br>
                     </div>
-                    <div class="stmDes">
-                        <div class="stmDesProfile">
-                            <div class="stmDesProfileLeft">
-                                <div class="stmDesProfileLeft-image">
-                                    <img src="https://dummyimage.com/200x200/fff/000000&text=profile">
+                </div>
+            </div>
+
+            <div class="content-stm">
+                <div class="stm-display-wrapper">
+                    <div class="stm-display">
+                        <div class="stmThumbnail">
+                            <ion-icon name="play-circle"></ion-icon>
+                            <img
+                                src="https://mirillis.com/blog/wp-content/uploads/2019/02/Desktop-19-02-2019-13-29-54-581.jpg">
+                        </div>
+                        <div class="stmDes">
+                            <div class="stmDesProfile">
+                                <div class="stmDesProfileLeft">
+                                    <div class="stmDesProfileLeft-image">
+                                        <img id="profileImg" src="" alt="Profile Image">
+                                    </div>
+                                    <div class="stmDesProfileLeft-text">
+                                        <h2 id="streamingRoomName"></h2>
+                                        <h3 id="streamingRoomDes"></h3>
+                                        <p><ion-icon name="game-controller"></ion-icon> playing Games</p>
+                                    </div>
                                 </div>
-                                <div class="stmDesProfileLeft-text">
-                                    <h2>Profile Name</h2>
-                                    <h3>Lorem ipsum dolor sit, amet consectetur?</h3>
-                                    <p><ion-icon name="game-controller"></ion-icon> playing Games</p>
-                                </div>
-                            </div>
-                            <div class="stmDesProfileRight-buttons">
-                                <div class="stmDesProfileRight-buttons-btn">
-                                    <button class="normal-stmBtn"><ion-icon name="thumbs-up-outline"></ion-icon></button>
-                                    <button class="normal-stmBtn"><ion-icon name="share-outline"></ion-icon></button>
-                                    <button class="follow-stmBtn"><ion-icon name="heart-outline"></ion-icon> Subscribe</button>
-                                </div>
-                                <div class="stmDesProfileRight-buttons-text">
-                                    <p><ion-icon name="eye-outline"></ion-icon> 0,000</p>
+                                <div class="stmDesProfileRight-buttons">
+                                    <div class="stmDesProfileRight-buttons-btn">
+                                        <button class="normal-stmBtn"><ion-icon
+                                                name="thumbs-up-outline"></ion-icon></button>
+                                        <button class="normal-stmBtn"><ion-icon
+                                                name="share-outline"></ion-icon></button>
+                                        <button class="follow-stmBtn"><ion-icon name="heart-outline"></ion-icon>
+                                            Subscribe</button>
+                                    </div>
+                                    <div class="stmDesProfileRight-buttons-text">
+                                        <p><ion-icon name="eye-outline"></ion-icon><span id="amountWatcher"></span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="stm-chat">
-                <div class="stm-chat-title">
-                    <h2>Stream Chat</h2>
-                </div>
-                <div class="stm-chat-comments">
-                    <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: green">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: pink">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: orange">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: purple">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: green">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: pink">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: orange">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: purple">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: green">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: pink">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: orange">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: purple">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: green">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: pink">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: orange">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: purple">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: green">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: pink">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: orange">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p>
-                    <p><span style="--clr-span: purple">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
-                </div>
-                <div class="stm-chat-input">
-                    <form>
-                        <input type="text">
-                        <button><ion-icon name="send"></ion-icon></button>
-                    </form>
-                    <button class="coinBtn"><ion-icon name="diamond"></ion-icon></button>
+                <div class="stm-chat">
+                    <div class="stm-chat-title">
+                        <h2>Stream Chat</h2>
+                    </div>
+                    <div class="stm-chat-comments">
+                        <!-- <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
+                            amet.</p>
+                        <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit
+                            amet.ipsum dolor sit amet.ipsum dolor sit amet.</p>
+                        <p><span style="--clr-span: green">username</span>Lorem ipsum dolor sit amet.</p>
+                        <p><span style="--clr-span: pink">username</span>Lorem ipsum dolor sit amet.</p>
+                        <p><span style="--clr-span: orange">username</span>Lorem ipsum dolor sit amet.ipsum dolor sit amet.
+                        </p>
+                        <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p> -->
+                    </div>
+                    <div class="stm-chat-input">
+                        <form>
+                            <input type="text">
+                            <button><ion-icon name="send"></ion-icon></button>
+                        </form>
+                        <button class="coinBtn"><ion-icon name="diamond"></ion-icon></button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     </div>
 
     <script src="scriptgg.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const host = "http://localhost:8000";
+        new Vue({
+            el: '#app',
+            mounted() {
+                const recordId = 3;
+
+                this.fetchStreamingRoom(recordId);
+                this.fetchAmountWatcher(recordId);
+                this.fetchProfileImage(recordId);
+            },
+            methods: {
+                fetchStreamingRoom(id) {
+                    axios.get(`${host}/streaming_room/${id}`)
+                        .then(response => {
+                             document.getElementById('streamingRoomName').textContent = response.data.streaming_name;
+                             document.getElementById('streamingRoomDes').textContent = response.data.streaming_des;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching streamingRoom data:', error);
+                        });
+                },
+                fetchAmountWatcher(id) {
+                    axios.get(`${host}/users_streaming_room/${id}`)
+                        .then(response => {
+                            document.getElementById('amountWatcher').textContent = response.data.amount_watcher;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching amountWatcher data:', error);
+                        });
+                },
+                fetchProfileImage(id) {
+                    axios.get(`${host}/users/${id}`)
+                        .then(response => {
+                            const profileImgElement = document.getElementById('profileImg');
+                            const imgGetAttribute = profileImgElement.getAttribute('src');
+                            if(imgGetAttribute == null) {
+                                console.log("profile image is null")
+                            } else {
+                                console.log("profile image isn't null")
+                            }
+
+                            profileImgElement.src = response.data.profile_picture;
+                            profileImgElement.alt = 'Profile Image';
+                        })
+                        .catch(error => {
+                            console.error('Error fetching profileImg data:', error);
+                        });
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
