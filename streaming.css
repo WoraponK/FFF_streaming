@@ -1,5 +1,7 @@
 :root {
     --clr-purple-pink: linear-gradient(139deg, #6100FF 15%, #FF4DCA 87.01%);
+    --clr-background: #171717;
+    --clr-red: #FF003D;
 }
 
 .content-stm {
@@ -73,19 +75,42 @@
 
             width: 70%;
 
-            .stmDesProfileLeft-image {
-                width: 80px;
-                height: 80px;
+            .stmDesProfileLeft-image-border {
+                border: 4px solid #FF003D;
                 border-radius: 100%;
-                overflow: hidden;
+                padding: 4px;
+                position: relative;
 
-                & img {
-                    height: 80px;
+                .stmDesProfileLeft-image {
                     width: 80px;
-                    object-fit: cover;
-                    object-position: center;
+                    height: 80px;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    
+                    & img {
+                        height: 80px;
+                        width: 80px;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+
+                .stmDesProfileLeft-image-live {
+                    position: absolute;
+                    background-color: var(--clr-red);
+                    padding: 0.15rem 0.5rem;
+                    border-radius: 5px;
+                    transform: translate(18px, -8px);
+                    border: 4px solid var(--clr-background);
+
+                    & p {
+                        font-size: 10px;
+                        font-weight: bold;
+                        color: #fff;
+                    }
                 }
             }
+
             .stmDesProfileLeft-text {
                 display: flex;
                 flex-direction: column;

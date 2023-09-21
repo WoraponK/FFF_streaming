@@ -1,0 +1,11 @@
+.content-stmli {
+    position: relative;
+    top: 94px;
+    left: 13%;
+    width: 100%;
+    height: calc(100vh - 94px);
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+}
