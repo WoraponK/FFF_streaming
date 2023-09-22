@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="streaming.css">
+    <link rel="stylesheet" href="/assets/css/streaming.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -72,16 +72,16 @@
                                 <div class="stmDesProfileLeft">
                                     <div class="stmDesProfileLeft-image-border">
                                         <div class="stmDesProfileLeft-image">
-                                            <img id="profileImg" src="" alt="Profile Image">
+                                            <img id="profileImg" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Image">
                                         </div>
                                         <div class="stmDesProfileLeft-image-live">
                                             <p>LIVE</p>
                                         </div>
                                     </div>
                                     <div class="stmDesProfileLeft-text">
-                                        <h2 id="streamingRoomName"></h2>
-                                        <h3 id="streamingRoomDes"></h3>
-                                        <p><ion-icon name="game-controller"></ion-icon> playing Games</p>
+                                        <h2 id="streamingRoomName">No Stream Name</h2>
+                                        <h3 id="streamingRoomDes">No Stream Description</h3>
+                                        <p><ion-icon name="game-controller"></ion-icon> playing NULL</p>
                                     </div>
                                 </div>
                                 <div class="stmDesProfileRight-buttons">
@@ -94,7 +94,7 @@
                                             Subscribe</button>
                                     </div>
                                     <div class="stmDesProfileRight-buttons-text">
-                                        <p><ion-icon name="eye-outline"></ion-icon><span id="amountWatcher"></span></p>
+                                        <p><ion-icon name="eye-outline"></ion-icon><span id="amountWatcher">000</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                     <div class="stm-chat-input">
                         <form>
                             <input type="text">
-                            <button><ion-icon name="send"></ion-icon></button>
+                            <button type="button"><ion-icon name="send"></ion-icon></button>
                         </form>
                         <button class="coinBtn"><ion-icon name="diamond"></ion-icon></button>
                     </div>
@@ -132,12 +132,11 @@
     </div>
 
     <script src="scriptgg.js"></script>
+    <script src="assets/js/streaming.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         const host = "http://localhost:8000";
-        const streamingRoomName = document.getElementById('streamingRoomName').textContent;
-        const streamingRoomDes = document.getElementById('streamingRoomDes').textContent;
 
         const app = new Vue({
             el: '#app',

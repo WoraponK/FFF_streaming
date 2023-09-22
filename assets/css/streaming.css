@@ -1,0 +1,312 @@
+:root {
+    --clr-purple-pink: linear-gradient(139deg, #6100FF 15%, #FF4DCA 87.01%);
+    --clr-background: #171717;
+    --clr-red: #FF003D;
+}
+
+.content-stm {
+    position: relative;
+    top: 94px;
+    left: 13%;
+    width: 100%;
+    height: calc(100vh - 94px);
+    z-index: 10;
+
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+    
+}
+
+.stm-display-wrapper {
+    padding-top: 2rem;
+    padding-left: 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+.stm-display {
+    height: 100%;
+    width: 100%;
+
+
+}
+
+.stmThumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: auto 16 / 9;
+
+    &:hover {
+        cursor: pointer;
+        & ion-icon {
+            color: #474747;
+        }
+    }
+    
+    & img {
+        height: 100%;
+    }
+
+    & ion-icon {
+        position: absolute;
+        top: 40%;
+        left: 43%;
+        font-size: 96px;
+        color: #5c5c5c;
+    }
+}
+
+.stmDes {
+    width: 100%;
+    padding-bottom: 10rem;
+
+    .stmDesProfile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        padding: 1rem 1rem 2rem 1rem;
+        border-bottom: 2px solid #787878;
+
+        .stmDesProfileLeft {
+            display: flex;
+            flex-direction: row;
+
+            width: 70%;
+
+            .stmDesProfileLeft-image-border {
+                border: 4px solid #FF003D;
+                border-radius: 100%;
+                padding: 4px;
+                position: relative;
+
+                .stmDesProfileLeft-image {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    
+                    & img {
+                        height: 80px;
+                        width: 80px;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+
+                .stmDesProfileLeft-image-live {
+                    position: absolute;
+                    background-color: var(--clr-red);
+                    padding: 0.15rem 0.5rem;
+                    border-radius: 5px;
+                    transform: translate(18px, -8px);
+                    border: 4px solid var(--clr-background);
+
+                    & p {
+                        font-size: 10px;
+                        font-weight: bold;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .stmDesProfileLeft-text {
+                display: flex;
+                flex-direction: column;
+                padding-left: 1rem;
+                width: calc(100% - 80px);
+                
+                & h2 {
+                    color: #fff;
+                }
+
+                & h3 {
+                    color: #fff;
+                    font-weight: normal;
+                }
+
+                & p {
+                    margin-top: 1rem;
+                    color: #8F9092;
+
+                    & ion-icon {
+                        color: #8F9092;
+                        transform: translateY(4px);
+                    }
+                }
+            }
+        }
+        
+        .stmDesProfileRight-buttons {
+            width: 30%;
+
+            .stmDesProfileRight-buttons-btn {
+                display: flex;
+                flex-direction: row;
+                align-items: top;
+                justify-content: end;
+                gap: 0.25rem;
+                width: 100%;
+                
+                .normal-stmBtn, .follow-stmBtn {
+                    padding: 0.25rem 0.6rem;
+                    color: #fff;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 10px;
+                    transition: all 0.25s ease-in-out;
+                    font-size: 18px;
+
+                    &:hover {
+                        transform: scale(0.9);
+                    }
+                    
+                    & ion-icon {
+                        transform: translateY(2px);
+                    }
+                }
+
+                .normal-stmBtn {
+                    background-color: #3A3A3A;
+                }
+
+                .follow-stmBtn {
+                    background: var(--clr-purple-pink);
+                }
+            }
+
+            .stmDesProfileRight-buttons-text {
+                margin-top: 0.25rem;
+                display: flex;
+                justify-content: end;
+                & p, ion-icon,span {
+                    color: #B0B3B8;
+                }
+
+                & span {
+                    margin-left: 0.5rem;
+                }
+
+                & ion-icon {
+                    transform: translateY(2px);
+                }
+            }
+        }
+    
+    }
+
+}
+
+.stm-chat {
+    position: fixed;
+    right: 0;
+    top: 94px;
+    width: calc(40% - 13%);
+    height: 100vh;
+    padding: 0 1rem;
+    background: linear-gradient(0deg, #020202 0.07%, #6100FF 578.11%);
+
+    display: grid;
+    grid-template-rows: 10% 74% 10%;
+}
+
+.stm-chat-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+
+    & h2 {
+        font-size: 32px;
+    }
+
+}
+
+.stm-chat-comments {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 0.5rem;
+    overflow-y: scroll;
+
+    & p {
+        font-size: 20px;
+        color: #fff;
+
+        & span {
+            font-weight: bold;
+            margin-right: 1rem;
+            color: var(--clr-span);
+        }
+    }
+}
+
+.stm-chat-input {
+    display: flex;
+    justify-content: center;
+
+    & form {
+        height: 50px;
+        width: calc(100% - 50px);
+        padding-right: 0.5rem;
+        position: relative;
+        
+        & input {
+            height: 100%;
+            width: 100%;
+            padding-left: 1.5rem;
+            padding-right: 50px;
+            font-size: 20px;
+            border-radius: 99px;
+            outline: none;
+        }
+        
+        & button {
+            position: absolute;
+            right: 0.75rem;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            background: none;
+            outline: none;
+            border: none;
+
+
+            &:hover {
+                & ion-icon {
+                    color: #FF4DCA;
+                }
+            }
+
+            & ion-icon {
+                font-size: 32px;
+                transform: translateY(1px);
+                color: #000;
+
+            transition: all 0.15s ease-in-out;
+
+            }
+        }
+    }
+
+    .coinBtn {
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        cursor: pointer;
+        background: var(--clr-purple-pink);
+        border: none;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(0.95);
+        }
+
+        & ion-icon {
+            font-size: 28px;
+            transform: translateY(1px);
+        }
+    }
+}
