@@ -105,7 +105,10 @@
                     <div class="stm-chat-title">
                         <h2>Stream Chat</h2>
                     </div>
-                    <div class="stm-chat-comments">
+                    <div class="stm-chat-comments" id="scrollBottomAuto">
+                        <ul id="commentList">
+
+                        </ul>
                         <!-- <p><span style="--clr-span: red">username</span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
                             amet.</p>
                         <p><span style="--clr-span: blue">username</span>Lorem ipsum dolor sit amet. ipsum dolor sit
@@ -117,9 +120,9 @@
                         <p><span style="--clr-span: yellow">username</span>Lorem ipsum dolor sit amet.</p> -->
                     </div>
                     <div class="stm-chat-input">
-                        <form>
-                            <input type="text">
-                            <button type="button"><ion-icon name="send"></ion-icon></button>
+                        <form id="formChat">
+                            <input type="text" id="chat-input" autocomplete="off">
+                            <button type="submit" value="Submit" id="chat-input-btn"><ion-icon name="send"></ion-icon></button>
                         </form>
                         <button class="coinBtn"><ion-icon name="diamond"></ion-icon></button>
                     </div>

@@ -231,6 +231,10 @@
     gap: 0.5rem;
     overflow-y: scroll;
 
+    #commentList {
+        overflow-wrap: break-word;
+    }
+
     & p {
         font-size: 20px;
         color: #fff;
