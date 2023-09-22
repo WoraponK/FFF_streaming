@@ -53,7 +53,7 @@
                 <div class="menu-sidebar">
                     <div class="display1">
                         <a href="#" style="color: #fff">Party</a><br>
-                        <a href="streaming_list.html" style="color: #fff">Stream</a><br>
+                        <a href="index_streaming.html" style="color: #fff">Stream</a><br>
                         <a href="#" style="color: #fff">Friends</a><br>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                                     <div class="stmDesProfileLeft-text">
                                         <h2 id="streamingRoomName">No Stream Name</h2>
                                         <h3 id="streamingRoomDes">No Stream Description</h3>
-                                        <p><ion-icon name="game-controller"></ion-icon> playing NULL</p>
+                                        <p><ion-icon name="game-controller"></ion-icon> playing <span id="streamingRoomGames"></span></p>
                                     </div>
                                 </div>
                                 <div class="stmDesProfileRight-buttons">
@@ -156,6 +156,7 @@
                         .then(response => {
                             document.getElementById('streamingRoomName').textContent = response.data.streaming_name;
                             document.getElementById('streamingRoomDes').textContent = response.data.streaming_des;
+                            document.getElementById('streamingRoomGames').textContent = response.data.streaming_games;
                         })
                         .catch(error => {
                             console.error('Error fetching streamingRoom data:', error);
