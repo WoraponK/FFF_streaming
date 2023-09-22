@@ -40,7 +40,7 @@
     &:hover {
         cursor: pointer;
         & ion-icon {
-            color: #474747;
+            color: #A044F5;
         }
     }
     
@@ -53,7 +53,8 @@
         top: 40%;
         left: 43%;
         font-size: 96px;
-        color: #5c5c5c;
+        color: #474747;
+
     }
 }
 
@@ -159,7 +160,7 @@
                     font-size: 18px;
 
                     &:hover {
-                        transform: scale(0.9);
+                        filter: brightness(120%);
                     }
                     
                     & ion-icon {
@@ -305,7 +306,7 @@
         transition: all 0.2s ease-in-out;
 
         &:hover {
-            transform: scale(0.95);
+            filter: brightness(120%);
         }
 
         & ion-icon {
