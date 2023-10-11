@@ -190,14 +190,16 @@ app.post('/streaming_room', async (req, res) => {
 app.put('/streaming_room/:streaming_id', async (req, res) => {
     try {
         const conn = await mysql.createConnection(dbConfig);
-        const [data] = await conn.query("UPDATE streaming_room SET streaming_name = ? WHERE streaming_id = ?",
+        const [data] = await conn.query("UPDATE streaming_room SET streaming_name = ?, streaming_description = ?, streaming_games = ? WHERE streaming_id = ?",
         [
             req.body.streaming_name,
+            req.body.streaming_description,
+            req.body.streaming_games,
             req.params.streaming_id
         ]);
         conn.end();
         res.json({
-            "message": "edit data complate",
+            "message": "edit data complete",
             "streaming_id": req.params.streaming_id,
             "data": req.body
         });
@@ -205,6 +207,7 @@ app.put('/streaming_room/:streaming_id', async (req, res) => {
         res.status(500).json({ "message": error.message });
     }
 });
+
 
 app.delete('/streaming_room/:streaming_id', async (req, res) => {
     try {

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/css/streaming.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
+
 </head>
 <header class="nav">
     <div class="imgbrand_box"><a href="index1.html">
@@ -44,7 +44,7 @@
 </header>
 
 <body>
-    <div id="id">
+    <div id="app">
         <div class="body">
             <div class="sidebar">
                 <div class="title-sidebar">
@@ -81,10 +81,10 @@
                                         </div>
                                     </div>
                                     <div class="stmDesProfileLeft-text">
-                                        <h2 id="streamingRoomName">No Stream Name</h2>
-                                        <h3 id="streamingRoomDes">No Stream Description</h3>
+                                        <h2 id="streamingRoomName">{{ streamingRoom.name }}</h2>
+                                        <h3 id="streamingRoomDes">{{ streamingRoom.description }}</h3>
                                         <p><ion-icon name="game-controller"></ion-icon> playing <span
-                                                id="streamingRoomGames"></span></p>
+                                                id="streamingRoomGames">{{ streamingRoom.games }}</span></p>
                                     </div>
                                 </div>
                                 <div class="stmDesProfileRight-buttons">
@@ -99,6 +99,9 @@
                                     <div class="stmDesProfileRight-buttons-text">
                                         <p><ion-icon name="eye-outline"></ion-icon><span id="amountWatcher">000</span>
                                         </p>
+                                        <br>
+                                        <p id="editStream" @click="showUpdateForm"><ion-icon
+                                                name="create-outline"></ion-icon> Edit</p>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +129,7 @@
                     <div class="stm-chat-input">
                         <form id="formChat">
                             <input type="text" id="chat-input" autocomplete="off">
-                            <button type="submit" value="Submit" id="chat-input-btn"><ion-icon
+                            <button type="button" id="chat-input-btn"><ion-icon
                                     name="send"></ion-icon></button>
                         </form>
                         <button class="coinBtn"><ion-icon name="diamond"></ion-icon></button>
@@ -140,25 +143,34 @@
     <script src="assets/js/streaming.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
     <script>
         const host = "http://localhost:8000";
 
         const app = new Vue({
             el: '#app',
+            data: {
+                recordId: 3,
+                streamingRoom: {
+                    name: '',
+                    description: '',
+                    games: ''
+                }
+            },
             mounted() {
-                const recordId = 3;
-
-                this.fetchStreamingRoom(recordId);
-                this.fetchAmountWatcher(recordId);
-                this.fetchProfileImage(recordId);
+                this.fetchStreamingRoom(this.recordId);
+                this.fetchAmountWatcher(this.recordId);
+                this.fetchProfileImage(this.recordId);
             },
             methods: {
                 fetchStreamingRoom(id) {
                     axios.get(`${host}/streaming_room/${id}`)
                         .then(response => {
-                            document.getElementById('streamingRoomName').textContent = response.data.streaming_name;
-                            document.getElementById('streamingRoomDes').textContent = response.data.streaming_des;
-                            document.getElementById('streamingRoomGames').textContent = response.data.streaming_games;
+                            this.streamingRoom.name = response.data.streaming_name;
+                            this.streamingRoom.description = response.data.streaming_des;
+                            this.streamingRoom.games = response.data.streaming_games;
                         })
                         .catch(error => {
                             console.error('Error fetching streamingRoom data:', error);
@@ -179,9 +191,9 @@
                             const profileImgElement = document.getElementById('profileImg');
                             const imgGetAttribute = profileImgElement.getAttribute('src');
                             if (imgGetAttribute == null) {
-                                console.log("profile image is null")
+                                console.log("profile image is null");
                             } else {
-                                console.log("profile image isn't null")
+                                console.log("profile image isn't null");
                             }
 
                             profileImgElement.src = response.data.profile_picture;
@@ -190,9 +202,38 @@
                         .catch(error => {
                             console.error('Error fetching profileImg data:', error);
                         });
+                },
+                showUpdateForm() {
+                    Swal.fire({
+                        title: 'Update Streaming Room Info',
+                        html:
+                            `<input id="name" class="swal2-input" placeholder="Streaming Room Name" value="${this.streamingRoom.name}">` +
+                            `<input id="description" class="swal2-input" placeholder="Streaming Room Description" value="${this.streamingRoom.description}">` +
+                            `<input id="games" class="swal2-input" placeholder="Streaming Room Games" value="${this.streamingRoom.games}">`,
+                        focusConfirm: false,
+                        preConfirm: () => {
+                            const name = Swal.getPopup().querySelector('#name').value;
+                            const description = Swal.getPopup().querySelector('#description').value;
+                            const games = Swal.getPopup().querySelector('#games').value;
+                            this.updateStreamingRoom(this.recordId, name, description, games);
+                        }
+                    });
+                },
+                updateStreamingRoom(id, streaming_name, streaming_description, streaming_games) {
+                    axios.put(`${host}/streaming_room/${id}`, {streaming_name, streaming_description, streaming_games})
+                        .then(response => {
+                            this.streamingRoom.name = streaming_name;
+                            this.streamingRoom.description = streaming_description;
+                            this.streamingRoom.games = streaming_games;
+                        })
+                        .catch(error => {
+                            console.error('Error updating streaming room:', error);
+                        });
                 }
+
             }
         });
+
     </script>
 </body>
 

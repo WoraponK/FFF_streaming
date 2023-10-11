@@ -2,6 +2,7 @@
     --clr-purple-pink: linear-gradient(139deg, #6100FF 15%, #FF4DCA 87.01%);
     --clr-background: #171717;
     --clr-red: #FF003D;
+    --clr-purple: #A044F5;
 }
 
 .content-stm {
@@ -180,6 +181,8 @@
             .stmDesProfileRight-buttons-text {
                 margin-top: 0.25rem;
                 display: flex;
+                flex-direction: column;
+                align-items: end;
                 justify-content: end;
                 & p, ion-icon,span {
                     color: #B0B3B8;
@@ -191,6 +194,17 @@
 
                 & ion-icon {
                     transform: translateY(2px);
+                }
+
+                & #editStream {
+                    &:hover {
+                        color: var(--clr-purple);
+                        cursor: pointer;
+
+                        & ion-icon {
+                            color: var(--clr-purple);
+                        }
+                    }
                 }
             }
         }
